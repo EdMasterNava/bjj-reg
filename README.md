@@ -1,1 +1,1 @@
-# Inital React Template
+# BJJ Register Landing Page
