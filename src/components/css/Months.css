@@ -1,0 +1,17 @@
+:root {
+    --hover: #181A1C;
+}
+.month-container{
+    display: block;
+}
+.month-button{
+    color: var(--text);
+    border-radius: 2rem;
+    border: .15rem solid black;
+    padding: .5rem 1rem;
+    margin: 1rem;
+}
+.month-button:hover {
+    background: var(--hover) !important;
+    cursor: pointer;
+}

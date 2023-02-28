@@ -30,8 +30,13 @@ body {
 
 /* Set core body defaults */
 body {
+  background: black;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+}
+
+.main-container {
+  text-align: center;
 }
 
 /* A elements that don't have a class get default styles */
