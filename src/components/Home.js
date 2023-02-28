@@ -12,7 +12,7 @@ function Home(){
                     <div className="title">
                         The #1 Brazilian Jiu-Jitsu Event Calendar
                     </div>
-                    <Link to="/events">
+                    <Link to="/bjj-reg/events">
                         <button className="event-btn">
                             View Events
                         </button>

@@ -7,9 +7,9 @@ function Navbar(){
     //render
     return (
         <nav className="nav">
-            <Link to="/" className="site-title">BJJ Register</Link>
+            <Link to="/bjj-reg/" className="site-title">BJJ Register</Link>
             <ul>
-                <CustomLink to="/events">Events</CustomLink>
+                <CustomLink to="/bjj-reg/events">Events</CustomLink>
             </ul>
         </nav>
     )
