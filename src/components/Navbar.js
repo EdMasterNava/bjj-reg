@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useMatch, useResolvedPath} from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons"
+import { faBars, faX } from "@fortawesome/free-solid-svg-icons"
 import "./css/Navbar.css";
 function Navbar(){
     //state
@@ -13,7 +13,9 @@ function Navbar(){
         <>
             <nav className="nav">
                 <div className="left-nav">
-                    <FontAwesomeIcon icon={click ? faXmark : faBars} onClick={handleClick}/>
+                    <div className="side-menu-toggle" onClick={handleClick}>
+                        <FontAwesomeIcon icon={click ? faX : faBars} className="icon"/>
+                    </div>
                     <Link to="/bjj-reg/" className="site-title">BJJ Register</Link>
                 </div>
                 <ul>

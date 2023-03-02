@@ -34,7 +34,13 @@
     gap: 1rem;
 }
 .icon {
-    size: 1.5rem;
+    font-size: 1.5rem;
+}
+.side-menu-toggle {
+    padding: .25rem;
+    display: flex;
+    justify-items: center;
+    align-items: center;
 }
 .side-menu {
     background: #e7e7e7;
