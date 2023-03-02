@@ -3,6 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Events from "./components/Events";
 import Home from "./components/Home";
+import Register from './components/Register';
+import Login from "./components/Login";
 import "./components/css/App.css";
 function App(){
     return (
@@ -12,6 +14,8 @@ function App(){
           <Routes>
             <Route path="/bjj-reg/" element={<Home />} />
             <Route path="/bjj-reg/events" element={<Events />} />
+            <Route path="/bjj-reg/register" element={<Register />} />
+            <Route path="/bjj-reg/login" element={<Login />} />
           </Routes>
         </div>
       </>
