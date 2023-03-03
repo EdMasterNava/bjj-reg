@@ -16,7 +16,7 @@ function Navbar(){
                     <div className="side-menu-toggle" onClick={handleClick}>
                         <FontAwesomeIcon icon={click ? faX : faBars} className="icon"/>
                     </div>
-                    <Link to="/bjj-reg/" className="site-title">BJJ Register</Link>
+                    <Link to="/bjj-reg/" className="site-title" onClick={() => setClick(false)}>BJJ Register</Link>
                 </div>
                 <ul>
                     <CustomLink to="/bjj-reg/events">Events</CustomLink>
