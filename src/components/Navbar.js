@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useMatch, useResolvedPath} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faX } from "@fortawesome/free-solid-svg-icons"
 import "./css/Navbar.css";
@@ -19,7 +19,9 @@ function Navbar(){
                     <Link to="/bjj-reg/" className="site-title" onClick={() => setClick(false)}>BJJ Register</Link>
                 </div>
                 <ul>
-                    <CustomLink to="/bjj-reg/events">Events</CustomLink>
+                    <CustomLink to="/bjj-reg/events" onClick={() => setClick(false)}>Events</CustomLink>
+                    <CustomLink to="/bjj-reg/register" onClick={() => setClick(false)}>Register</CustomLink>
+                    <CustomLink to="/bjj-reg/login" onClick={() => setClick(false)}>Login</CustomLink>
                 </ul>
             </nav>
             <div className={click ? "side-menu active" : "side-menu"}>
@@ -34,10 +36,8 @@ function Navbar(){
     )
 }
 function CustomLink({ to, children, ...props}) {
-    // const resolvedPath = useResolvedPath(to);
-    // const isActive = useMatch({ path: resolvedPath.pathname, end: true})
     return (
-        <li className={/*isActive ? "tabs active" : */"tabs"}>
+        <li className={"tabs"}>
             <Link to={to} {...props}>
                 {children}
             </Link>
