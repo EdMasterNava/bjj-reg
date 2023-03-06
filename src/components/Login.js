@@ -7,14 +7,15 @@ function Login(){
             <form>
                 <div>
                     <label>Email</label>
-                    <input type='email' placeholder='your-email@example.com' id='email' name='email'/>
+                    <input required type='email' placeholder='your-email@example.com' id='email' name='email'/>
                 </div>
                 <div>
                     <label>Password</label>
-                    <input type='password' placeholder='********' id='password' name='password'/>
+                    <input required type='password' placeholder='********' id='password' name='password'/>
                 </div>
                 <button type='submit'>Log In</button>
             </form>
+            <div></div>
         </div>
     )
 }

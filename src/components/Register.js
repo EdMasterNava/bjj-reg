@@ -23,6 +23,9 @@ function Register(){
                     </div>
                     <button type='submit' >Register</button>
                 </form>
+                <div className='form-footer'>
+                    Already have an account? Sign In
+                </div>
         </div>
     )
 }
