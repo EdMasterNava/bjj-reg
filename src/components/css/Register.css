@@ -47,3 +47,12 @@ button[type="submit"]:hover {
     margin: 1rem;
     font-size: 1.1rem;
 }
+.form-title {
+    font-size: 2rem;
+}
+.error {
+    display: block;
+    background: #aa0101;
+    padding: 1rem;
+    border-radius: .5rem;
+}
