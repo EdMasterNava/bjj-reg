@@ -1,14 +1,23 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faX } from "@fortawesome/free-solid-svg-icons"
+import { faBars, faX } from "@fortawesome/free-solid-svg-icons";
+import { useAuth } from './AuthContext';
 import "./css/Navbar.css";
 function Navbar(){
-    //state
     const [click, setClick] = useState(false);
-    //methods
+    const [error, setError] = useState('');
+    const { currentUser, logout } = useAuth();
     const handleClick = () => setClick(!click);
-    //render
+    async function handleLogOut(){
+        setError('');
+        try {
+            await logout();
+        }catch {
+           setError('Failed To Logout');
+        }
+        setClick(false);
+    }
     return (
         <>
             <nav className="nav">
@@ -20,15 +29,25 @@ function Navbar(){
                 </div>
                 <ul>
                     <CustomLink to="/bjj-reg/events" onClick={() => setClick(false)}>Events</CustomLink>
-                    <CustomLink to="/bjj-reg/register" onClick={() => setClick(false)}>Register</CustomLink>
-                    <CustomLink to="/bjj-reg/login" onClick={() => setClick(false)}>Login</CustomLink>
+                    {currentUser ? <a className="logout" onClick={handleLogOut}>Log Out</a> : 
+                     <div className="reg-login">
+                        <CustomLink to="/bjj-reg/register" 
+                                    onClick={() => setClick(false)}
+                                    className="">Register</CustomLink>
+                        <CustomLink to="/bjj-reg/login" onClick={() => setClick(false)}>Login</CustomLink>
+                     </div>}
+                    
                 </ul>
             </nav>
             <div className={click ? "side-menu active" : "side-menu"}>
                 <ul>
                     <CustomLink to="/bjj-reg/events" onClick={handleClick}>Events</CustomLink>
-                    <CustomLink to="/bjj-reg/register" onClick={handleClick}>Register</CustomLink>
-                    <CustomLink to="/bjj-reg/login" onClick={handleClick}>Login</CustomLink>
+                    {currentUser ? <a className="logout" onClick={handleLogOut}>Log Out</a> :
+                     <div className="side-reg-login">
+                        <CustomLink to="/bjj-reg/register" onClick={handleClick}>Register</CustomLink>
+                        <CustomLink to="/bjj-reg/login" onClick={handleClick}>Login</CustomLink>
+                     </div>}
+                    
                 </ul>
             </div>
         </>

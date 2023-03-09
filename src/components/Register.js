@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useAuth } from './AuthContext';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './css/Register.css';
 
 function Register(){
@@ -8,9 +8,10 @@ function Register(){
     const emailRef = useRef();
     const passwordRef = useRef();
     const passwordConfirmRef = useRef();
-    const { register, currentUser } = useAuth();
+    const { register } = useAuth();
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     async function handleSubmit(event) {
         event.preventDefault();
@@ -20,19 +21,17 @@ function Register(){
         try{
             setError('');
             setLoading(true);
-            await register(emailRef.current.value, passwordRef.current.value); 
+            await register(emailRef.current.value, passwordRef.current.value);
+            navigate('/bjj-reg'); 
         } catch {
             return setError('Failed To Create An Account');
-        }
-        
+        } 
     }
-
     return (
         <div className='register-container'>
                 <form onSubmit={handleSubmit}>
                     <div className='form-title'>Register</div>
                     {error ? <div className='error'>{error}</div> : <div></div>}
-                    {currentUser && currentUser.email}
                     <div>
                         <label>Name</label>
                         <input  type='text' 
@@ -71,7 +70,7 @@ function Register(){
                     <button type='submit' disabled={loading}>Register</button>
                 </form>
                 <div className='form-footer'>
-                    Already have an account? <Link to="/bjj-reg/login">Sign In</Link>
+                    Already have an account? <Link to="/bjj-reg/login">Log In</Link>
                 </div>
         </div>
     )

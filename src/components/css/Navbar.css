@@ -65,6 +65,28 @@
     padding: .25rem;
     font-size: 2rem;
 }
+.side-reg-login {
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-items: center;
+    align-items: center;
+}
 .active {
     right: revert;
+}
+.logout {
+    font-size: 1.4rem;
+}
+.logout:hover {
+    cursor: pointer;
+}
+.reg-login {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
 }
